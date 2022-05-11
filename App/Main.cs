@@ -14,5 +14,11 @@ namespace App
             Web web = new Web(url_textbox.Text);
             web.Show();
         }
+
+        private void web_open_Click(object sender, EventArgs e)
+        {
+            Web web = new Web("");
+            web.Show();
+        }
     }
 }

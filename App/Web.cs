@@ -1,11 +1,14 @@
 ﻿using System.Xml;
 using System.ServiceModel.Syndication;
+using System.Runtime.InteropServices;
 using SQlite;
 
 namespace App
 {
     public partial class Web : Form
     {
+        [DllImport("Kernel32.dll")]
+        static extern Boolean AllocConsole();
         public List<string> name = new List<string>();
         public List<string> summary = new List<string>();
         public List<string> date = new List<string>();
@@ -13,9 +16,9 @@ namespace App
         public Web(string url)
         {
             InitializeComponent();
-            Xml(news, url);
+            if (!(url == ""))
+                Xml(news, url);
         }
-        // https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
         void Xml(RichTextBox news, string url)
         {
             SyndicationFeed feed = null;
@@ -50,14 +53,13 @@ namespace App
 
         private void write_db_Click(object sender, EventArgs e)
         {
-            db.CreateDB();
-            db.AddData(name,summary,date);
+            db.Start();
+            db.Write(name, summary, date);
         }
-
-        private void view_db_Click(object sender, EventArgs e)
+        private void read_db_Click(object sender, EventArgs e)
         {
-            ViewData vd = new ViewData();
-            vd.Show();
+            SQlite.DataBase.txt = news;
+            db.Show();
         }
     }
 }

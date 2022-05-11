@@ -32,7 +32,6 @@
             this.read_db = new System.Windows.Forms.Button();
             this.write_db = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
-            this.view_db = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // news
@@ -51,6 +50,7 @@
             this.read_db.TabIndex = 1;
             this.read_db.Text = "Read RSS Web";
             this.read_db.UseVisualStyleBackColor = true;
+            this.read_db.Click += new System.EventHandler(this.read_db_Click);
             // 
             // write_db
             // 
@@ -64,7 +64,7 @@
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(318, 444);
+            this.reset.Location = new System.Drawing.Point(216, 444);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(96, 38);
             this.reset.TabIndex = 3;
@@ -72,22 +72,11 @@
             this.reset.UseVisualStyleBackColor = true;
             this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
-            // view_db
-            // 
-            this.view_db.Location = new System.Drawing.Point(216, 444);
-            this.view_db.Name = "view_db";
-            this.view_db.Size = new System.Drawing.Size(96, 38);
-            this.view_db.TabIndex = 4;
-            this.view_db.Text = "View DataGrid";
-            this.view_db.UseVisualStyleBackColor = true;
-            this.view_db.Click += new System.EventHandler(this.view_db_Click);
-            // 
             // Web
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 505);
-            this.Controls.Add(this.view_db);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.write_db);
             this.Controls.Add(this.read_db);
@@ -104,6 +93,5 @@
         private Button read_db;
         private Button write_db;
         private Button reset;
-        private Button view_db;
     }
 }

@@ -30,6 +30,7 @@
         {
             this.url_textbox = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.web_open = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // url_textbox
@@ -50,11 +51,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // web_open
+            // 
+            this.web_open.Location = new System.Drawing.Point(536, 29);
+            this.web_open.Name = "web_open";
+            this.web_open.Size = new System.Drawing.Size(83, 21);
+            this.web_open.TabIndex = 2;
+            this.web_open.Text = "View RSS";
+            this.web_open.UseVisualStyleBackColor = true;
+            this.web_open.Click += new System.EventHandler(this.web_open_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 32);
+            this.ClientSize = new System.Drawing.Size(633, 57);
+            this.Controls.Add(this.web_open);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.url_textbox);
             this.Name = "Main";
@@ -67,5 +79,6 @@
 
         private RichTextBox url_textbox;
         private Button button1;
+        private Button web_open;
     }
 }
