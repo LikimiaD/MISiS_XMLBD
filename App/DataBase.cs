@@ -60,22 +60,22 @@ namespace SQlite
 
         static void CreateTable(SQLiteConnection conn)
         {
-             SQLiteCommand sqlite_cmd;
+            SQLiteCommand sqlite_cmd;
             string Deletesql = "drop table if exists News";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = Deletesql;
             sqlite_cmd.ExecuteNonQuery();
             string Createsql = "create table if not exists News(Name VARCHAR(1000), Summary VARCHAR(1000), Date VARCHAR(1000))";
-             sqlite_cmd = conn.CreateCommand();
-             sqlite_cmd.CommandText = Createsql;
-             sqlite_cmd.ExecuteNonQuery();
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = Createsql;
+            sqlite_cmd.ExecuteNonQuery();
         }
 
         static void InsertData(SQLiteConnection conn, string name, string summary, string date)
         {
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = $"INSERT INTO News(Name, Summary, Date) VALUES('{name}', '{summary}', '{date}'); ";
+           SQLiteCommand sqlite_cmd;
+           sqlite_cmd = conn.CreateCommand();
+           sqlite_cmd.CommandText = $"INSERT INTO News(Name, Summary, Date) VALUES('{name}', '{summary}', '{date}'); ";
            sqlite_cmd.ExecuteNonQuery();
         }
 
